@@ -11,6 +11,7 @@ public class transitions : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+
        
     }
 
@@ -41,7 +42,7 @@ public class transitions : MonoBehaviour
         transform.localScale = playerscale;
 
         {
-  
+
         }
         
     }
