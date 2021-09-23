@@ -15,7 +15,7 @@ public class player_mov_01 : MonoBehaviour
     public float checkRadius;
     public LayerMask whatisGround;
     public float jumpTime;
-    public bool isJumping;
+    private bool isJumping;
 
     void Start()
     {
