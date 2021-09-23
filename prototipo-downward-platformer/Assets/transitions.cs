@@ -17,20 +17,25 @@ public class transitions : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        float rotation = Input.GetAxis("Horizontal");
+
+        //Siento que esta línea podría estar más prolija
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+           
         { 
             anim.SetBool("isrunning", true);
         }
         else
             anim.SetBool("isrunning", false);
 
+
         // Flip
 
         Vector3 playerscale = transform.localScale;
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (rotation < 0)
             playerscale.x = -1;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (rotation > 0)
             playerscale.x = 1;
 
         transform.localScale = playerscale;
@@ -38,7 +43,7 @@ public class transitions : MonoBehaviour
         {
   
         }
-
         
     }
+
 }
