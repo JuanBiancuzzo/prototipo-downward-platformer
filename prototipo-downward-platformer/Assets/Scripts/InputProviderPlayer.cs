@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InputProvider", menuName = "ScriptableObjects/InputProvider")]
-public class InputProvider : ScriptableObject, IInputProvider
+public class InputProviderPlayer : IInputProvider
 {
-    [SerializeField]public List<IInputMiddleware> cadena;
+    public List<IInputMiddleware> cadena;
 
-    // public event Action OnJump;
+    public InputProviderPlayer()
+    {
+        cadena.Add(new InputSystem());
+    }
+    
+    // public event Action OnJump; // despues agregar
 
     public InputState GetState() 
     {
