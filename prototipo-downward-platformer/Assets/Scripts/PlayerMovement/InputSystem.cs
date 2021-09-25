@@ -9,6 +9,7 @@ public class InputSystem : IInputMiddleware
         inputState.direccion = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         inputState.agachado = Input.GetKey(KeyCode.LeftControl);
+        inputState.saltar = Input.GetButtonDown("Jump");
 
         return inputState;
     }

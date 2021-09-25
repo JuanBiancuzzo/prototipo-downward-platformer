@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InputProviderPlayer : IInputProvider
 {
-    public List<IInputMiddleware> cadena;
+    public List<IInputMiddleware> cadena = new List<IInputMiddleware>();
 
     public void AgregarInputMiddleware(IInputMiddleware inputMiddleware)
     {

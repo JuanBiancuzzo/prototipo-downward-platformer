@@ -7,6 +7,7 @@ public struct InputState
 {
     public Vector2 direccion;
     public bool agachado;
+    public bool saltar;
 }
 
 public interface IInputProvider
