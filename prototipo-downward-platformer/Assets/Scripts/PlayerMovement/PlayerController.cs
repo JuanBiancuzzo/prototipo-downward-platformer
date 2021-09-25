@@ -6,20 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     public IInputProvider inputProvider = new InputProviderPlayer();
     public List<IMovimiento> movimientos = new List<IMovimiento>();
-    public CharacterController controlador;
+    public Rigidbody2D cuerpo;
+
 
     void Start()
     {
         inputProvider.AgregarInputMiddleware(new InputSystem());
         movimientos.Add(new Caminar());
-        // movimientos.Add(new Saltar());
+        movimientos.Add(new Saltar());
     }
 
     void Update()
     {
         InputState inputState = inputProvider.GetState();
         foreach (IMovimiento movimiento in movimientos)
-            movimiento.Mover(inputState, controlador);
+            inputState = movimiento.Mover(inputState, cuerpo);
     }
     
 }

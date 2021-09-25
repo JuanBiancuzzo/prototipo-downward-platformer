@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Caminar : IMovimiento
 {
-    public float velocidad = 5f;
+    public float velocidad = 15f;
+    
+    private float m_MovementSmoothing = .05f;
+    private Vector3 m_Velocity = Vector3.zero;
 
-    public void Mover(InputState inputState, CharacterController controlador)
+    public InputState Mover(InputState inputState, Rigidbody2D rigidbody)
     {
-        Vector3 movimiento = new Vector3(inputState.direccion.x * Time.deltaTime * velocidad, 0f, 0f);
+        
+        Vector3 targetVelocity = new Vector2(inputState.direccion.x * velocidad, rigidbody.velocity.y);
+		rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-        controlador.Move(movimiento);
+        return inputState;
     }
 }
 

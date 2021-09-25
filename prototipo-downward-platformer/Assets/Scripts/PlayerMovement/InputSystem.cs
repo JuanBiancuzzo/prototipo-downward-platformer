@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class InputSystem : IInputMiddleware
 {
+    // public CharacterController controlador;
+
+    // public InputSystem(CharacterController _controlador)
+    // {
+    //     controlador = _controlador;
+    // }
+
     public InputState Procesar(InputState inputState)
     {
         inputState.direccion = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        inputState.agachado = Input.GetKey(KeyCode.LeftControl);
-        inputState.saltar = Input.GetButtonDown("Jump");
+        // inputState.cayendo = !controlador.isGrounded;
+        // inputState.saltar = Input.GetButton("Jump");
 
         return inputState;
     }

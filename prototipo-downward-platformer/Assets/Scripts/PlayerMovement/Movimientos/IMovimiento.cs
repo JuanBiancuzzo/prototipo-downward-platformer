@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IMovimiento
 {
-    public void Mover(InputState inputState, CharacterController controlador);
+    public InputState Mover(InputState inputState, Rigidbody2D rigidbody);
 }
