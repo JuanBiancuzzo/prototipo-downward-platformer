@@ -7,11 +7,16 @@ public class InputProviderPlayer : IInputProvider
 {
     public List<IInputMiddleware> cadena;
 
-    public InputProviderPlayer()
+    public void AgregarInputMiddleware(IInputMiddleware inputMiddleware)
     {
-        cadena.Add(new InputSystem());
+        cadena.Add(inputMiddleware);
     }
-    
+
+    public void SacarInputMiddleware(IInputMiddleware inputMiddleware)
+    {
+        cadena.Remove(inputMiddleware);
+    }
+
     // public event Action OnJump; // despues agregar
 
     public InputState GetState() 

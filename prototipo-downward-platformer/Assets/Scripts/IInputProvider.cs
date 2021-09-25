@@ -13,5 +13,9 @@ public interface IInputProvider
 {
     // public event Action OnJump;
 
+    public void AgregarInputMiddleware(IInputMiddleware inputMiddleware);
+
+    public void SacarInputMiddleware(IInputMiddleware inputMiddleware);
+
     public InputState GetState();
 }
