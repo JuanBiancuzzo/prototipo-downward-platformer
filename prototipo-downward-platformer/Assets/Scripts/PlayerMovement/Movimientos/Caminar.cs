@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Caminar : IMovimiento
+public class Caminar : AMovimiento
 {
     public float velocidad = 15f;
     
     private float m_MovementSmoothing = .05f;
     private Vector3 m_Velocity = Vector3.zero;
 
-    public InputState Mover(InputState inputState, Rigidbody2D rigidbody)
+    public override InputState Mover(InputState inputState, Rigidbody2D rigidbody)
     {
         
         Vector3 targetVelocity = new Vector2(inputState.direccion.x * velocidad, rigidbody.velocity.y);
@@ -18,4 +18,3 @@ public class Caminar : IMovimiento
         return inputState;
     }
 }
-

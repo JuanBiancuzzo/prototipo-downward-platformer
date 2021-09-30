@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public IInputProvider inputProvider = new InputProviderPlayer();
-    public List<IMovimiento> movimientos = new List<IMovimiento>();
+    public AInputProvider inputProvider = new InputProviderPlayer();
+    public List<AMovimiento> movimientos = new List<AMovimiento>();
     public Rigidbody2D cuerpo;
 
 
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         InputState inputState = inputProvider.GetState();
-        foreach (IMovimiento movimiento in movimientos)
+        foreach (AMovimiento movimiento in movimientos)
             inputState = movimiento.Mover(inputState, cuerpo);
     }
     

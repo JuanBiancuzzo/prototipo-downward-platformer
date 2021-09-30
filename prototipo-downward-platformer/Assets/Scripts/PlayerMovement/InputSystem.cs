@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputSystem : IInputMiddleware
+public class InputSystem : AInputMiddleware
 {
     // public CharacterController controlador;
 
@@ -11,7 +11,7 @@ public class InputSystem : IInputMiddleware
     //     controlador = _controlador;
     // }
 
-    public InputState Procesar(InputState inputState)
+    public override InputState Procesar(InputState inputState)
     {
         inputState.direccion = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 

@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class InputProviderPlayer : IInputProvider
+public class InputProviderPlayer : AInputProvider
 {
-    public List<IInputMiddleware> cadena = new List<IInputMiddleware>();
+    public List<AInputMiddleware> cadena = new List<AInputMiddleware>();
 
-    public void AgregarInputMiddleware(IInputMiddleware inputMiddleware)
+    public override void AgregarInputMiddleware(AInputMiddleware inputMiddleware)
     {
         cadena.Add(inputMiddleware);
     }
 
-    public void SacarInputMiddleware(IInputMiddleware inputMiddleware)
+    public override void SacarInputMiddleware(AInputMiddleware inputMiddleware)
     {
         cadena.Remove(inputMiddleware);
     }
 
     // public event Action OnJump; // despues agregar
 
-    public InputState GetState() 
+    public override InputState GetState() 
     {
         InputState inputState = new InputState();
 
-        foreach (IInputMiddleware inputMiddleware in cadena)
+        foreach (AInputMiddleware inputMiddleware in cadena)
             inputState = inputMiddleware.Procesar(inputState);
 
         return inputState;
